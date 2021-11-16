@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/10 00:42:38 by dha               #+#    #+#             */
-/*   Updated: 2021/11/16 17:16:53 by dha              ###   ########.fr       */
+/*   Created: 2021/11/16 19:57:06 by dha               #+#    #+#             */
+/*   Updated: 2021/11/16 21:00:42 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <stdlib.h>
-
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
-int	ft_isalnum(int c);
-size_t	ft_strlen(const char *s);
-void	*ft_memset(void *b, int c, size_t len);
-
-typedef struct s_list
+char	*ft_strrchr(const char *s, int c)
 {
-	void			*content;
-	struct s_list	*next;
-}				t_list;
+	char	*start;
 
-#endif
+	start = s;
+	while (*s)
+		s++;
+	while (--s != start)
+	{
+		if (*s == (char) c)
+			return (s);
+	}
+	return (0);
+}

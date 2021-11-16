@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 00:49:17 by dha               #+#    #+#             */
-/*   Updated: 2021/11/13 20:47:31 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/16 15:54:41 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	t_dst = (unsigned char *) dst;
 	if (t_dst <= t_src)
 	{
-		while (n)
+		while (len)
 		{
-			t_dst++ = t_src++;
-			n--;
+			*t_dst++ = *t_src++;
+			len--;
 		}
 	}
 	else
 	{
-		while (n)
+		while (len)
 		{
-			n--;
-			t_dst[n] = t_src[n];
+			len--;
+			t_dst[len] = t_src[len];
 		}
 	}
 	return (dst);
