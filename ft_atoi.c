@@ -6,11 +6,29 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 01:10:35 by dha               #+#    #+#             */
-/*   Updated: 2021/11/10 01:10:51 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/18 15:03:51 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_atoi(const char *str)
 {
+	int	tot;
+	int	sign;
 
+	sign = 1;
+	tot = 0;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str != '\0')
+	{
+		if (*str < '0' || *str > '9')
+			break ;
+		tot += tot * 10 + (*str - '0');
+		str++;
+	}
+	return (tot * sign);
 }
