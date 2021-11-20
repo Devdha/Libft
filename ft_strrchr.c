@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 19:57:06 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 19:05:59 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/20 20:18:48 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*start;
 
-	start = s;
+	start = (char *) s;
 	while (*s)
 		s++;
-	while (--s != start)
+	while (--s >= start)
 	{
 		if (*s == (char) c)
-			return (s);
+			return ((char *) s);
 	}
 	return (0);
 }

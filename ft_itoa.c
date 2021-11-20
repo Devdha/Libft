@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 17:30:14 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 19:06:13 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/20 19:56:25 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static unsigned char	alen(int n)
 	unsigned int	p_n;
 	unsigned char	len;
 
+	len = 0;
+	p_n = n;
 	if (n < 0)
 	{
 		p_n = -n;
