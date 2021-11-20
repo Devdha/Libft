@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:43:18 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 19:05:58 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/20 19:15:31 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	trimmed_len(char const *s1, char const *set)
 	trim_i = 0;
 	while (s1[i] != '\0')
 	{
-		if (!is_set)
+		if (!is_set(s1[i], set))
 			trim_i++;
 		i++;
 	}
@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trim_i = 0;
 	while (s1[i] != '\0')
 	{
-		if (!is_set)
+		if (!is_set(s1[i], set))
 		{
 			trimmed[trim_i] = s1[i];
 			trim_i++;
