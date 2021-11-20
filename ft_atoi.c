@@ -6,9 +6,18 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 01:10:35 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 19:06:19 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/20 21:40:41 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+static int	is_space(char c)
+{
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r')
+		return (1);
+	if (c == ' ')
+		return (1);
+	return (0);
+}
 
 int	ft_atoi(const char *str)
 {
@@ -17,6 +26,8 @@ int	ft_atoi(const char *str)
 
 	sign = 1;
 	tot = 0;
+	while (is_space(*str))
+		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
