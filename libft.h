@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 00:42:38 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 19:02:56 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/20 19:50:57 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strdup(const char *s1);
 void	*ft_memset(void *b, int c, size_t len);
 
 typedef struct s_list
