@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 00:53:14 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 21:25:37 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/21 19:25:58 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	index = 0;
 	src_len = ft_strlen(src);
-	while (index < src_len && index < dstsize - 1)
+	while (index < src_len && index + 1 < dstsize)
 	{
 		dst[index] = src[index];
 		index++;
