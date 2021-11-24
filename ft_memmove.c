@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 00:49:17 by dha               #+#    #+#             */
-/*   Updated: 2021/11/21 20:37:49 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/23 16:23:55 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	unsigned char	*t_dst;
 	unsigned char	*t_src;
 
+	if (dst == 0 && src == 0)
+		return (0);
 	t_src = (unsigned char *) src;
 	t_dst = (unsigned char *) dst;
 	if (t_dst <= t_src)

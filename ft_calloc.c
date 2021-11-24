@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 23:23:23 by dha               #+#    #+#             */
-/*   Updated: 2021/11/24 23:17:40 by dha              ###   ########.fr       */
+/*   Created: 2021/11/24 23:42:59 by dha               #+#    #+#             */
+/*   Updated: 2021/11/24 23:43:17 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*mem;
 
-	if (count && size > (size_t) -1 / count)
+	if (count && size > (size_t)(-1 / count))
 		return (0);
 	size *= count;
 	mem = malloc(size);
