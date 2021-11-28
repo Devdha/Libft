@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 17:30:14 by dha               #+#    #+#             */
-/*   Updated: 2021/11/20 19:56:25 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/26 17:56:59 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 static unsigned char	alen(int n)
 {
-	unsigned int	p_n;
+	long long		num;
 	unsigned char	len;
 
+	if (n == 0)
+		return (1);
 	len = 0;
-	p_n = n;
-	if (n < 0)
+	num = n;
+	if (num < 0)
 	{
-		p_n = -n;
+		num = -num;
 		len++;
 	}
-	while (p_n > 0)
+	while (num > 0)
 	{
-		p_n /= 10;
+		num /= 10;
 		len++;
 	}
 	return (len);
@@ -44,7 +46,7 @@ static unsigned int	pow_ten(unsigned char exp)
 
 char	*ft_itoa(int n)
 {
-	unsigned int	p_n;
+	long long		num;
 	char			*ret;
 	unsigned char	len;
 	unsigned char	i;
@@ -54,16 +56,17 @@ char	*ft_itoa(int n)
 	if (ret == 0)
 		return (0);
 	i = 0;
-	if (n < 0)
+	num = n;
+	if (num < 0)
 	{
-		p_n = -n;
+		num = -num;
 		ret[i++] = '-';
 		len--;
 	}
 	while (len > 0)
 	{
-		ret[i++] = (p_n / pow_ten(len - 1)) + '0';
-		p_n %= pow_ten(len - 1);
+		ret[i++] = (num / pow_ten(len - 1)) + '0';
+		num %= pow_ten(len - 1);
 		len--;
 	}
 	ret[i] = '\0';

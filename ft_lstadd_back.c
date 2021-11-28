@@ -6,7 +6,16 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:16:29 by dha               #+#    #+#             */
-/*   Updated: 2021/11/25 16:46:56 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/27 21:53:27 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	if (*lst)
+		ft_lstlast(*lst) -> next = new;
+	else
+		*lst = new;
+}

@@ -6,7 +6,63 @@
 /*   By: dha <dha@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:16:56 by dha               #+#    #+#             */
-/*   Updated: 2021/11/25 16:46:56 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/26 20:36:22 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+static unsigned char	alen(int n)
+{
+	long long		num;
+	unsigned char	len;
+
+	if (n == 0)
+		return (1);
+	len = 0;
+	num = n;
+	if (num < 0)
+	{
+		num = -num;
+		len++;
+	}
+	while (num > 0)
+	{
+		num /= 10;
+		len++;
+	}
+	return (len);
+}
+
+static unsigned int	pow_ten(unsigned char exp)
+{
+	unsigned int	ret;
+
+	ret = 1;
+	while (exp--)
+		ret *= 10;
+	return (ret);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long long		num;
+	unsigned char	len;
+	unsigned char	c;
+
+	len = alen(n);
+	num = n;
+	if (num < 0)
+	{
+		num = -num;
+		write(fd, "-", 1);
+		len--;
+	}
+	while (len > 0)
+	{
+		c = (num / pow_ten(len - 1)) + '0';
+		num %= pow_ten(len - 1);
+		write(fd, &c, 1);
+		len--;
+	}
+}
