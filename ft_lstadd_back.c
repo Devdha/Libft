@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:16:29 by dha               #+#    #+#             */
-/*   Updated: 2021/11/28 19:43:06 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/28 19:47:03 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
+	t_list	*last;
+
+	if (lst == 0 || new == 0)
+		return ;
 	if (*lst)
-		ft_lstlast(*lst) -> next = new;
+	{
+		last = ft_lstlast(*lst);
+		last -> next = new;
+	}
 	else
 		*lst = new;
 }

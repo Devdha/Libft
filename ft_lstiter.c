@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 17:20:52 by dha               #+#    #+#             */
-/*   Updated: 2021/11/28 19:43:02 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/28 19:48:42 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst)
 	{
-		f(lst -> content)
+		f(lst -> content);
 		lst = lst -> next;
 	}
 }

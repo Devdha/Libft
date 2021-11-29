@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:16:49 by dha               #+#    #+#             */
-/*   Updated: 2021/11/28 19:42:57 by dha              ###   ########.fr       */
+/*   Updated: 2021/11/29 12:51:48 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	size;
+	int		size;
+	t_list	*curr;
 
 	size = 0;
-	while (lst)
+	curr = lst;
+	while (curr)
 	{
-		lst = lst -> next;
+		curr = curr -> next;
 		size++;
 	}
 	return (size);
