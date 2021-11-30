@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+         #
+#    By: dha <dha@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 20:59:53 by dha               #+#    #+#              #
-#    Updated: 2021/11/30 14:55:47 by dha              ###   ########.fr        #
+#    Updated: 2021/11/30 15:20:36 by dha              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,14 +42,14 @@ bonus :
 	$(CC) $(CFLAGS) $< -o $@
 
 clean :
-	rm -f $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-$(OBJS): $(SRCS) libft.h
+$(OBJS) : $(SRCS) libft.h
 
-$(OBJS_BONUS): $(SRCS_BONUS) libft.h
+$(OBJS_BONUS) : $(SRCS_BONUS) libft.h
 
 re : fclean all
 
