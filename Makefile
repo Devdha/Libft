@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dha <dha@student.42.fr>                    +#+  +:+       +#+         #
+#    By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/26 20:59:53 by dha               #+#    #+#              #
-#    Updated: 2021/11/29 20:52:10 by dha              ###   ########.fr        #
+#    Updated: 2021/11/30 14:55:47 by dha              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -c
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o)
-TARGET = libft.a
+NAME = libft.a
 
 ifdef WITH_BONUS
 	OBJ_FILES = $(OBJS) $(OBJS_BONUS)
@@ -30,9 +30,9 @@ else
 	OBJ_FILES = $(OBJS)
 endif
 
-all : $(TARGET)
+all : $(NAME)
 
-$(TARGET) : $(OBJ_FILES)
+$(NAME) : $(OBJ_FILES)
 	ar rcs $@ $^
 
 bonus :
@@ -45,7 +45,11 @@ clean :
 	rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean : clean
-	rm -f $(TARGET)
+	rm -f $(NAME)
+
+$(OBJS): $(SRCS) libft.h
+
+$(OBJS_BONUS): $(SRCS_BONUS) libft.h
 
 re : fclean all
 
