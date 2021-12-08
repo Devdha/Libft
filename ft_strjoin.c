@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 15:29:00 by dha               #+#    #+#             */
-/*   Updated: 2021/11/28 19:42:39 by dha              ###   ########.fr       */
+/*   Updated: 2021/12/08 20:27:26 by dha              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,20 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	i;
-	size_t	len1;
-	size_t	len2;
+	size_t	len;
 	char	*str;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	str = (char *) malloc(sizeof(char) * (len1 + len2 + 1));
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *) malloc(sizeof(char) * (len + 1));
 	if (str == 0)
 		return (0);
 	i = 0;
-	while (i < len1)
+	while (i < len)
 	{
-		str[i] = s1[i];
-		i++;
-	}
-	while (i < len1 + len2)
-	{
-		str[i] = s2[i - len1];
+		if (i < ft_strlen(s1))
+			str[i] = s1[i];
+		else
+			str[i] = s2[i - ft_strlen(s1)];
 		i++;
 	}
 	str[i] = '\0';
