@@ -6,63 +6,32 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:16:56 by dha               #+#    #+#             */
-/*   Updated: 2021/11/28 19:42:44 by dha              ###   ########.fr       */
+/*   Updated: 2022/04/19 15:29:05 by dha              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned char	alen(int n)
-{
-	long long		num;
-	unsigned char	len;
-
-	if (n == 0)
-		return (1);
-	len = 0;
-	num = n;
-	if (num < 0)
-	{
-		num = -num;
-		len++;
-	}
-	while (num > 0)
-	{
-		num /= 10;
-		len++;
-	}
-	return (len);
-}
-
-static unsigned int	pow_ten(unsigned char exp)
-{
-	unsigned int	ret;
-
-	ret = 1;
-	while (exp--)
-		ret *= 10;
-	return (ret);
-}
-
 void	ft_putnbr_fd(int n, int fd)
 {
-	long long		num;
-	unsigned char	len;
-	unsigned char	c;
-
-	len = alen(n);
-	num = n;
-	if (num < 0)
+	char	c;
+	if (n == -2147483648)
 	{
-		num = -num;
-		write(fd, "-", 1);
-		len--;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	while (len > 0)
+	if (n < 0)
 	{
-		c = (num / pow_ten(len - 1)) + '0';
-		num %= pow_ten(len - 1);
-		write(fd, &c, 1);
-		len--;
+		write(1, "-", 1);
+		n = -n;
 	}
+	if (n < 10)
+	{
+		c = n % 10 + '0';
+		write(fd, &c , 1);
+		return ;
+	}
+	ft_putnbr_fd(n / 10, fd);
+	c = n % 10 + '0';
+	write(fd, &c , 1);
 }

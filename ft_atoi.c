@@ -6,9 +6,11 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/10 01:10:35 by dha               #+#    #+#             */
-/*   Updated: 2021/11/28 19:43:14 by dha              ###   ########.fr       */
+/*   Updated: 2022/04/22 13:56:01 by dha              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <limits.h>
 
 static int	is_space(char c)
 {
@@ -21,24 +23,22 @@ static int	is_space(char c)
 
 int	ft_atoi(const char *str)
 {
-	int	tot;
-	int	sign;
+	unsigned long	tot;
+	int				sign;
 
-	sign = 1;
 	tot = 0;
+	sign = 1 - ((*str == '-') << 1);
 	while (is_space(*str))
 		str++;
-	if (*str == '-' || *str == '+')
+	str += (*str == '-' || *str == '+');
+	while (*str >= '0' && *str <= '9')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (*str != '\0')
-	{
-		if (*str < '0' || *str > '9')
-			break ;
-		tot = tot * 10 + (*str - '0');
+		if (tot > (unsigned long) LONG_MAX / 10 + (sign < 0))
+			return ((sign < 0) - 1);
+		tot = tot * 10;
+		if (tot > (unsigned long) LONG_MAX - (*str - '0') + (sign < 0))
+			return ((sign < 0) - 1);
+		tot += (*str - '0');
 		str++;
 	}
 	return (tot * sign);
