@@ -6,7 +6,7 @@
 /*   By: dha <dha@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:16:56 by dha               #+#    #+#             */
-/*   Updated: 2022/04/19 15:29:05 by dha              ###   ########.fr       */
+/*   Updated: 2022/07/16 17:48:01 by dha              ###   ########seoul.kr  */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
+
 	if (n == -2147483648)
 	{
 		write(fd, "-2147483648", 11);
@@ -28,10 +29,10 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 10)
 	{
 		c = n % 10 + '0';
-		write(fd, &c , 1);
+		write(fd, &c, 1);
 		return ;
 	}
 	ft_putnbr_fd(n / 10, fd);
 	c = n % 10 + '0';
-	write(fd, &c , 1);
+	write(fd, &c, 1);
 }
